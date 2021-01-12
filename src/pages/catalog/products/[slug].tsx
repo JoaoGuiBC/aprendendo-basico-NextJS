@@ -1,11 +1,19 @@
 import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from "next";
-import Prismic from 'prismic-javascript';
 import PrismicDom from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 
 import SEO from "@/components/SEO";
 import { client } from '@/lib/prismic';
+
+import {
+  Container,
+  Title,
+  Body,
+  Img,
+  Description,
+  Price,
+ } from '@/styles/pages/Products';
 
 interface ProductProps {
   product: Document;
@@ -19,15 +27,24 @@ export default function Product({ product }: ProductProps) {
   };
 
   return (
-    <div>
-      <h1>{PrismicDom.RichText.asText(product.data.title)}</h1>
+    <Container>
+      <SEO
+        title={PrismicDom.RichText.asText(product.data.title)}
+        image="boost.png"
+      />
 
-      <img src={product.data.thumbnail.url} width="246" alt={product.uid}/>
+      <Title>{PrismicDom.RichText.asText(product.data.title)}</Title>
 
-      <p>{PrismicDom.RichText.asText(product.data.description)}</p>
+      <Body>
+        <Img src={product.data.thumbnail.url} width="246" alt={product.uid}/>
 
-      <p>R${product.data.price}</p>
-    </div>
+        <div>
+          <Description>{PrismicDom.RichText.asText(product.data.description)}</Description>
+
+          <Price>R${product.data.price}</Price>
+        </div>
+      </Body>
+    </Container>
   );
 }
 

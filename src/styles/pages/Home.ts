@@ -53,7 +53,7 @@ export const ProductLink = styled.a`
 `;
 
 export const Img = styled.img`
-  width: 280px;
+  width: 328px;
   border-radius: 21px;
   margin-bottom: 8px;
 `;
