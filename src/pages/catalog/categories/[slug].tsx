@@ -1,10 +1,21 @@
-import { client } from '@/lib/prismic';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Prismic from 'prismic-javascript';
 import PrismicDom from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
+
+import SEO from "@/components/SEO";
+import { client } from '@/lib/prismic';
+
+import {
+  Container,
+  Body,
+  Title,
+  List,
+  ProductLink,
+  Img
+} from '@/styles/pages/Categories';
 
 interface ICategoryProps {
   category: Document;
@@ -19,27 +30,32 @@ export default function Category({ products, category }: ICategoryProps) {
   };
 
   return (
-    <div>
-      <title>{PrismicDom.RichText.asText(category.data.title)}</title>
+    <Container>
+      <SEO
+        title={PrismicDom.RichText.asText(category.data.title)}
+        image="boost.png"
+      />
 
-      <ul>
+      <Title>{PrismicDom.RichText.asText(category.data.title)}</Title>
+
+      <List>
         {products.map(product => {
           return (
             <li key={product.id}>
               <Link href={`/catalog/products/${product.uid}`}>
-                <a>
-                  <img
+                <ProductLink>
+                  <Img
                     src={product.data.thumbnail.url}
                     alt={product.uid}
                   />
                   {PrismicDom.RichText.asText(product.data.title)}
-                </a>
+                </ProductLink>
               </Link>
             </li>
           );
         })}
-      </ul>
-    </div>
+      </List>
+    </Container>
   );
 };
 

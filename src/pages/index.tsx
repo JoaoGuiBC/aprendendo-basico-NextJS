@@ -1,10 +1,10 @@
-import SEO from "@/components/SEO";
 import { GetServerSideProps } from "next";
 import Link from 'next/link';
 import Prismic from 'prismic-javascript';
 import PrismicDom from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 
+import SEO from "@/components/SEO";
 import { client } from "@/lib/prismic";
 import {
   Container,
