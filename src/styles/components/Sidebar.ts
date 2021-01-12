@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-
-// #3b3842;
-
 export const Container = styled.aside`
   display: flex;
   flex-direction: column;
@@ -12,12 +9,32 @@ export const Container = styled.aside`
   left: 80px;
   top: 96px;
   padding: 8px 16px;
-  border-radius: 24px;
+
+  @media (max-width: 950px) {
+    background: #282730;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 250px;
+    padding-left: 0;
+    left: auto;
+    top: 80px;
+    border-radius: 24px;
+  }
 `;
 
 export const Title = styled.h2`
   color: #8257e5;
   margin: 16px 0;
+
+  @media (max-width: 950px) {
+    text-align: center;
+    font-size: 1.5em;
+    width: 136px;
+    margin: 8px 0;
+  }
 `;
 
 export const TitleLink = styled.a`

@@ -10,8 +10,21 @@ export const Container = styled.div`
 
 export const Body = styled.section`
   display: flex;
+
   margin-top: 10%;
   padding: 0 80px;
+
+  @media (max-width: 1050px) {
+    margin-top: 25%;
+    padding: 40px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 1050px) {
+    font-size: 0.7em;
+  }
 
   div {
     display: flex;
@@ -36,12 +49,26 @@ export const Title = styled.h1`
   cursor: default;
   background: #282730;
   box-shadow: #18181a 0px 1rem 2rem;
+
+  @media (max-width: 1050px) {
+    height: auto;
+  }
 `;
 
 export const Img = styled.img`
   width: 400px;
+  height: 400px;
   border-radius: 21px;
   margin-right: 88px;
+
+  @media (max-width: 1050px) {
+    margin: 0 0 32px 0;
+  }
+
+  @media (max-width: 400px) {
+    width: 350px;
+    height: 350px;
+  }
 `;
 
 export const Description = styled.p`

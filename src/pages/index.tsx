@@ -31,10 +31,11 @@ export default function Home({ recommendedProducts }: HomeProps) {
         shouldExcludeTitleSuffix
       />
 
-      <Sidebar showSearchLink />
-
       <Body>
         <Title>Produtos</Title>
+
+        <Sidebar showSearchLink />
+
         <List>
           {recommendedProducts.map(recommendedProduct => {
             return (
