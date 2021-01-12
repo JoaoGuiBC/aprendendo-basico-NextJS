@@ -6,7 +6,14 @@ import PrismicDom from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 
 import { client } from "@/lib/prismic";
-import { Title } from "../styles/pages/Home";
+import {
+  Container,
+  Body,
+  Title,
+  List,
+  ProductLink,
+  Img
+} from "../styles/pages/Home";
 
 interface HomeProps {
   recommendedProducts: Document[];
@@ -15,30 +22,34 @@ interface HomeProps {
 export default function Home({ recommendedProducts }: HomeProps) {
 
   return (
-    <div>
+    <Container>
       <SEO
         title="TestCommerce - o e-commerce pra aprender sobre NextJS"
         image="boost.png"
         shouldExcludeTitleSuffix
       />
 
-      <section>
+      <Body>
         <Title>Produtos</Title>
-        <ul>
+        <List>
           {recommendedProducts.map(recommendedProduct => {
             return (
               <li key={recommendedProduct.id}>
                 <Link href={`/catalog/products/${recommendedProduct.uid}`}>
-                  <a>
+                  <ProductLink>
+                    <Img
+                      src={recommendedProduct.data.thumbnail.url}
+                      alt={recommendedProduct.uid}
+                    />
                     {PrismicDom.RichText.asText(recommendedProduct.data.title)}
-                  </a>
+                  </ProductLink>
                 </Link>
               </li>
             );
           })}
-        </ul>
-      </section>
-    </div>
+        </List>
+      </Body>
+    </Container>
   )
 }
 

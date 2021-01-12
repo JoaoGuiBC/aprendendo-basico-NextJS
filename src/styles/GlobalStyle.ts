@@ -11,4 +11,8 @@ export default createGlobalStyle`
     color: #fdf0f0;
     font-family: Roboto, Arial, Helvetica, sans-serif;
   }
+
+  li {
+    list-style: none;
+  }
 `;
