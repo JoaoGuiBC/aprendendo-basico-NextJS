@@ -13,7 +13,7 @@ import {
   List,
   ProductLink,
   Img
-} from "../styles/pages/Home";
+} from "@/styles/pages/Home";
 
 interface HomeProps {
   recommendedProducts: Document[];
