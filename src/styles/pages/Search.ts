@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.form`
+export const SearchContainer = styled.form`
   display: flex;
   height: 56px;
   color: #8257e5;
@@ -49,9 +49,13 @@ export const SearchButton = styled.button`
 
 export const List = styled.ul`
   margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 55vw;
 
   li {
-    margin-bottom: 32px;
+    margin: 16px 8px;
     border-radius: 0 0 32px 32px;
     transition: all 0.2s;
 

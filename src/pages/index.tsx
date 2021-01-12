@@ -6,6 +6,8 @@ import { Document } from 'prismic-javascript/types/documents';
 
 import SEO from "@/components/SEO";
 import { client } from "@/lib/prismic";
+import Sidebar from '@/components/Sidebar';
+
 import {
   Container,
   Body,
@@ -28,6 +30,8 @@ export default function Home({ recommendedProducts }: HomeProps) {
         image="boost.png"
         shouldExcludeTitleSuffix
       />
+
+      <Sidebar showSearchLink />
 
       <Body>
         <Title>Produtos</Title>
@@ -61,6 +65,6 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   return {
     props: {
       recommendedProducts: recommendedProducts.results,
-    }
-  }
-}
+    },
+  };
+};

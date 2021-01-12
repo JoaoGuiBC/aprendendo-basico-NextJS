@@ -28,9 +28,13 @@ export const Title = styled.h1`
 
 export const List = styled.ul`
   margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 55vw;
 
   li {
-    margin-bottom: 32px;
+    margin: 16px 8px;
     border-radius: 0 0 32px 32px;
     transition: all 0.2s;
 

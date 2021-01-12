@@ -9,10 +9,11 @@ import { FiSearch } from 'react-icons/fi';
 
 import { client } from '@/lib/prismic';
 import SEO from "@/components/SEO";
+import Sidebar from '@/components/Sidebar';
 
 import {
   Container,
-  Title,
+  SearchContainer,
   SearchInput,
   SearchButton,
   List,
@@ -45,12 +46,14 @@ export default function Search({ searchResults }: SearchProps) {
         image="boost.png"
       />
 
-      <Title onSubmit={handleSearch}>
+      <Sidebar showHomeLink />
+
+      <SearchContainer onSubmit={handleSearch}>
         <SearchInput type="text" value={search} onChange={e => setSearch(e.target.value)} />
         <SearchButton type="submit">
           <FiSearch/>
         </SearchButton>
-      </Title>
+      </SearchContainer>
 
       <List>
           {searchResults.map(product => {
