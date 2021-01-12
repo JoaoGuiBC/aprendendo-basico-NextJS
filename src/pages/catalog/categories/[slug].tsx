@@ -7,6 +7,7 @@ import { Document } from 'prismic-javascript/types/documents';
 
 import SEO from "@/components/SEO";
 import { client } from '@/lib/prismic';
+import Sidebar from '@/components/Sidebar';
 
 import {
   Container,
@@ -37,6 +38,11 @@ export default function Category({ products, category }: ICategoryProps) {
       />
 
       <Title>{PrismicDom.RichText.asText(category.data.title)}</Title>
+
+      <Sidebar
+        showSearchLink
+        showHomeLink
+      />
 
       <List>
         {products.map(product => {
