@@ -5,7 +5,20 @@ import { FormEvent, useState } from "react";
 import Prismic from 'prismic-javascript';
 import PrismicDom from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents'
-import { client } from "@/lib/prismic";
+import { FiSearch } from 'react-icons/fi';
+
+import { client } from '@/lib/prismic';
+import SEO from "@/components/SEO";
+
+import {
+  Container,
+  Title,
+  SearchInput,
+  SearchButton,
+  List,
+  ProductLink,
+  Img,
+} from '@/styles/pages/Search';
 
 interface SearchProps {
   searchResults: Document[];
@@ -26,30 +39,37 @@ export default function Search({ searchResults }: SearchProps) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSearch}>
-        <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
-        <button type="submit">Buscar</button>
-      </form>
+    <Container>
+      <SEO
+        title="Busca"
+        image="boost.png"
+      />
 
-      <ul>
+      <Title onSubmit={handleSearch}>
+        <SearchInput type="text" value={search} onChange={e => setSearch(e.target.value)} />
+        <SearchButton type="submit">
+          <FiSearch/>
+        </SearchButton>
+      </Title>
+
+      <List>
           {searchResults.map(product => {
             return (
               <li key={product.id}>
                 <Link href={`/catalog/products/${product.uid}`}>
-                  <a>
-                    <img
+                  <ProductLink>
+                    <Img
                       src={product.data.thumbnail.url}
                       alt={product.uid}
                     />
                     {PrismicDom.RichText.asText(product.data.title)}
-                  </a>
+                  </ProductLink>
                 </Link>
               </li>
             );
           })}
-        </ul>
-    </div>
+        </List>
+    </Container>
   );
 }
 
