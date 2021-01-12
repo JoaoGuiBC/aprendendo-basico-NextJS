@@ -14,7 +14,7 @@ export default function NotFound() {
         <TextContent>Você está perdido?</TextContent>
       </div>
 
-      <Link href="http://localhost:3000/">
+      <Link href="/">
         <LinkToHome>Retornar à página inicial</LinkToHome>
       </Link>
     </Container>
